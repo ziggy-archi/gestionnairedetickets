@@ -1,12 +1,22 @@
 from django.contrib import admin
 
-from polls.models import Ticket, Personne
+from oob.models import Ticket, Personne
 
-class TicketInline(admin.TabularInline):
+class TicketAdmin(admin.ModelAdmin):
     model = Ticket
-    extra = 10
+    list_filter = ['date_de_soumission']
+    list_display = ('personne', 'date_de_soumission', 'cloture_du_ticket')
+
 
 
 class PersonneInline(admin.TabularInline):
     model = Personne
     extra = 5
+
+
+class PersonneAdmin(admin.ModelAdmin):
+    list_display = ('nom',)
+
+
+admin.site.register(Ticket, TicketAdmin)
+admin.site.register(Personne, PersonneAdmin)
