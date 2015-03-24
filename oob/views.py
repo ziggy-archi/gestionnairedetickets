@@ -16,5 +16,5 @@ def resultat(request):
     return render(request, 'oob/resultat.html',)
 
 def traitement_de_demande(request):
-    nom = request.POST['nom']
+    nom = request.POST['nom, couriel , message']
     return render(request, 'oob/traitement_de_demande.html',)

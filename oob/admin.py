@@ -11,7 +11,7 @@ class TicketAdmin(admin.ModelAdmin):
 
 class PersonneInline(admin.TabularInline):
     model = Personne
-    extra = 5
+    extra = 6
 
 
 class PersonneAdmin(admin.ModelAdmin):
