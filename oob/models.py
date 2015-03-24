@@ -12,5 +12,7 @@ class Ticket(models.Model):
     cloture_du_ticket = models.BooleanField(default=False)
     date_de_soumission = models.DateTimeField()
     personne = models.ForeignKey(Personne)
+    demandeur = models.CharField(max_length=50)
+    couriel = models.CharField(max_length=100)
 
 

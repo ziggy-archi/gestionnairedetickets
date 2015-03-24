@@ -1,0 +1,41 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title>
+</title>
+<link rel="stylesheet" type="text/css" href="{% static "oob/css/bootstrap.css" %}" />
+</head>
+<body>
+<div class="container">
+
+     <div class="row">
+         <div class="col-md-4">
+
+
+
+
+<form action="{% url 'traitement_de_demande' %}" method="post">
+    <div>
+        <label for="nom">Nom :</label>
+        <input name ="nom" class="form-control" type="text" id="nom" />
+    </div>
+    <div>
+        <label for="courriel">Courriel :</label>
+        <input name ="courriel" class="form-control" type="email" id="courriel" />
+    </div>
+    <div>
+        <label for="message">Message :</label>
+        <textarea name ="message" class="form-control" id="message" rows="10" COLS="50"></textarea>
+    </div>
+
+    <div class="button">
+        <button type="submit" class="btn btn-primary">Primary</button>
+    </div>
+</form>
+             </div>
+         </div>
+    </div>
+</body>
+</html>
