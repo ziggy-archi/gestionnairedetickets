@@ -8,9 +8,9 @@ urlpatterns = patterns('',
 
     url(r'^demande/$', views.demande, name='demande'),
 
-    url(r'^resultat/$', views.resultat, name='resultat'),
+    url(r'^resultat/(?P<ticket_id>\d+)$', views.resultat, name='resultat'),
 
-    url(r'^traitement_de_demande/$', views.resultat, name='traitement_de_demande'))
+    url(r'^traitement_de_demande/$', views.traitement_de_demande, name='traitement_de_demande'))
 
 
 
