@@ -1,11 +1,12 @@
-{% load staticfiles %}<!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head lang="en">
 
     <meta charset="UTF-8">
     <title>
 </title>
-<link rel="stylesheet" type="text/css" href="{% static "oob/css/bootstrap.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "oob/css/bootstrap.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "oob/css/style.css" %}"/>
 </head>
 <body>
 <div class="container">
@@ -15,19 +16,19 @@
 
 
 
-
 <form action="{% url 'traitement_de_demande' %}" method="post">
     <div>
-        <label for="nom">Nom :</label>
-        <input name ="nom" class="form-control" type="text" id="nom" />
+        <label for="nom">Nom : {% if message_erreur.affiche_nom %} {{ message_erreur.nom }} {% endif %}</label>
+        <input name ="nom" class="form-control" type="text" id="nom" value="{{temp_ticket.nom}}"/>
+
     </div>
     <div>
-        <label for="courriel">Courriel :</label>
-        <input name ="courriel" class="form-control" type="email" id="courriel" />
+        <label for="courriel">Courriel : {% if message_erreur.affiche_courriel %} {{ message_erreur.courriel }} {% endif %}</label>
+        <input name ="courriel" class="form-control" type="email" id="courriel" value="{{temp_ticket.courriel}}"/>
     </div>
     <div>
-        <label for="message">Message :</label>
-        <textarea name ="message" class="form-control" id="message" rows="10" COLS="50"></textarea>
+        <label for="message">Message : {% if message_erreur.affiche_message %} {{ message_erreur.message }} {% endif %}</label>
+        <textarea name ="message" class="form-control" id="message" rows="10" COLS="50">{{temp_ticket.message}}</textarea>
     </div>
 
     <div class="button">

@@ -1,12 +1,50 @@
+{% load staticfiles %}
+<html>
+<head lang="en">
 
-<h1>{{ticket.demandes }}</h1>
+    <meta charset="UTF-8">
+    <title>
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "oob/css/bootstrap.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "oob/css/style.css" %}"/>
+</head>
+<body>
 
-<table class="table">
-  {{ ticket }}
-</table>
+<div class="container">
 
-<a href="{% url 'demande'%}">formuler une nouvelle de demande</a>
-<br>
-<a href="{% url 'index'  %}">retour a la page initiale</a>
+    <div class="row">
+        <div class="col-md-4">
+            <h1>{{ ticket.demandes }}</h1>
 
+            <ul>
+                <li>Email :<a href="mailto:{{ ticket.courriel }}"> {{ ticket.courriel }} </a></li>
 
+                <li>Technicien prenant en charge le ticket :  {% if ticket.personne %}
+                    {{ ticket.personne }}
+                {% else %}
+                    non encore assigné .
+                {% endif %} </li>
+
+                <li>Nom Du Demandeur : {{ ticket.demandeur }}</li>
+
+                <li>Date De Soumission : {{ ticket.date_de_soumission }} </li>
+
+                <li>Status du Ticket :
+                    {% if ticket.cloture_du_ticket %}
+                        Cloturé
+                    {% else %}
+                        En cours
+                    {% endif %}
+                </li>
+
+            </ul>
+
+            <a href="{% url 'demande' %}">formuler une nouvelle de demande</a>
+            <br>
+            <a href="{% url 'index' %}">retour a la page initiale</a>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

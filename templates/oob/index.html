@@ -1,11 +1,30 @@
-<!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head lang="en">
+
     <meta charset="UTF-8">
-    <title></title>
+    <title>
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "oob/css/bootstrap.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "oob/css/style.css" %}"/>
 </head>
 <body>
-<a href="{% url 'demande' %}">bienvenu sur notre site de sondage.</a>
-{{ bob }}
+<div class="container">
+
+<div class="row">
+    <div class="col-md-8"
+
+    <div class="row">
+        <div class="col-md-10">
+
+           Cliquer sur le boutton pour formuler votre demande.
+
+
+            <a class="btn btn-primary btn-lg" href="{% url 'demande' %}">ENTRER</a>
+
+        </div>
+    </div>
+</div>
+    </div>
 </body>
 </html>
